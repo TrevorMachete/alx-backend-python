@@ -1,25 +1,16 @@
 #!/usr/bin/env python3
-"""
-3-tasks.py
-Module that defines a function called task_wait_random
-"""
-
+"""Contains a method that returns a task"""
 import asyncio
-from typing import Callable
 
-# Use __import__() to import the module
 wait_random = __import__('0-basic_async_syntax').wait_random
 
 
-def task_wait_random(max_delay: int) -> Callable:
+def task_wait_random(max_delay: int) -> asyncio.Task:
     """
-    Function that takes an integer max_delay and returns a asyncio.Task.
-
-    Parameters:
-    max_delay (int): Maximum delay
-
-    Returns:
-    Callable: asyncio.Task object
+    Returns a task that waits for a random number of seconds
+    Args:
+        max_delay: maximum number of seconds that the task will wait
+    Returns: an asyncio.Task object
     """
-    task = asyncio.create_task(wait_random(max_delay))
-    return task
+    return asyncio.create_task(wait_random(max_delay))
+
